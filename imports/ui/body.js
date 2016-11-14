@@ -30,3 +30,10 @@ Template.body.events({
 		target.text.value = '';
 	},
 });
+
+Template.body.helpers({
+	tasks() {
+		// Show newest tasks at the to
+		return Tasks.find({}, { sort: {createdAt: -1}});
+	}
+});
